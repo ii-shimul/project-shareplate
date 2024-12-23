@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AwesomeButton } from "react-awesome-button";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenu, setIsMobileMenu] = useState(false);
   return (
     <nav className="bg-black bg-opacity-10 text-base-content shadow">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex h-16  items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
             <button
@@ -21,11 +25,6 @@ const Navbar = () => {
             >
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
-              {/*
-      Icon when menu is closed.
-
-      Menu open: "hidden", Menu closed: "block"
-    */}
               <svg
                 className="block size-6"
                 fill="none"
@@ -41,11 +40,6 @@ const Navbar = () => {
                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                 />
               </svg>
-              {/*
-      Icon when menu is open.
-
-      Menu open: "block", Menu closed: "hidden"
-    */}
               <svg
                 className="hidden size-6"
                 fill="none"
@@ -63,8 +57,8 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
+          <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex shrink-0 items-center max-sm:hidden">
               <img
                 className="h-8 w-auto"
                 src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
@@ -108,10 +102,14 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div
+            className={`absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0`}
+          >
             <button
               type="button"
-              className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              className={`${
+                user ? "" : "hidden"
+              } relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800`}
             >
               <span className="absolute -inset-1.5" />
               <span className="sr-only">View notifications</span>
@@ -136,7 +134,9 @@ const Navbar = () => {
               <div>
                 <button
                   type="button"
-                  className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className={`${
+                    user ? "" : "hidden"
+                  } relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800`}
                   id="user-menu-button"
                   aria-expanded="false"
                   aria-haspopup="true"
@@ -146,59 +146,29 @@ const Navbar = () => {
                   <span className="sr-only">Open user menu</span>
                   <img
                     className="size-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    src={user?.photoURL}
                     alt="User profile picture"
                   />
                 </button>
               </div>
-              {/*
-      Dropdown menu, show/hide based on menu state.
-
-      Entering: "transition ease-out duration-100"
-        From: "transform opacity-0 scale-95"
-        To: "transform opacity-100 scale-100"
-      Leaving: "transition ease-in duration-75"
-        From: "transform opacity-100 scale-100"
-        To: "transform opacity-0 scale-95"
-    */}
-              <div
-                className={`absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none ${
-                  isMenuOpen ? "" : "hidden"
-                }`}
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="user-menu-button"
-                tabIndex={-1}
+            </div>
+            <div className={`flex gap-2 ml-3 ${user?.email ? "hidden" : ""}`}>
+              <Link to={"/signin"}>
+                <AwesomeButton type="primary">SignIn</AwesomeButton>
+              </Link>
+              <Link to={"/signup"}>
+                <AwesomeButton type="secondary">SignUp</AwesomeButton>
+              </Link>
+            </div>
+            <div className={`flex gap-2 ml-3 ${user?.email ? "" : "hidden"}`}>
+              <AwesomeButton
+                onPressed={() => {
+                  logOut();
+                }}
+                type="primary"
               >
-                {/* Active: "bg-gray-100 outline-none", Not Active: "" */}
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabIndex={-1}
-                  id="user-menu-item-0"
-                >
-                  Your Profile
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabIndex={-1}
-                  id="user-menu-item-1"
-                >
-                  Settings
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabIndex={-1}
-                  id="user-menu-item-2"
-                >
-                  Sign out
-                </a>
-              </div>
+                SignOut
+              </AwesomeButton>
             </div>
           </div>
         </div>
