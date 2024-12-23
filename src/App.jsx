@@ -2,7 +2,7 @@ function App() {
 
   return (
     <>
-      <p className="text-5xl ">Vite + React</p>
+      <p className="text-3xl">Vite + React</p>
     </>
   );
 }
