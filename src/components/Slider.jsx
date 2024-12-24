@@ -1,38 +1,109 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "../index.css"
+import { GiBanana } from "react-icons/gi";
+import { FaLemon } from "react-icons/fa";
 
 const Slider = () => {
   return (
     <>
       <Swiper
         rewind={true}
-        spaceBetween={30}
+        slidesPerView={1}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper min-h-screen"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <SwiperSlide>
+          <div
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=2070&auto=format&fit=crop')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "100vh",
+            }}
+          >
+            <div className="pt-52 pl-28 text-[#428526]">
+              <h1 className="text-6xl font-bold max-sm:text-3xl">
+                Share Food, Spread Love!
+              </h1>
+              <p className="mt-2 mb-3 text-base italic max-sm:text-sm">
+                Join our community to donate or receive fresh food near you.
+              </p>
+              <p className="text-xl max-sm:text-lg">
+                Share your extra food with someone in need.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1498579809087-ef1e558fd1da?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "100vh",
+            }}
+          >
+            <div className="pt-52 text-center text-[#f16571]">
+              <h1 className="text-6xl font-bold max-sm:text-3xl">
+                No Food Should Go to Waste!
+              </h1>
+              <p className="mt-2 mb-3 text-base italic max-sm:text-sm">
+                Together, we can reduce food waste and fight hunger.
+              </p>
+              <p className="text-xl max-sm:text-lg">
+                Your extra food can save someone in need.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "100vh",
+            }}
+          >
+            <div className="pt-52 text-end pr-28 text-[#fe89a8]">
+              <h1 className="text-6xl font-bold max-sm:text-3xl">
+                Together, We Can Make a Difference!
+              </h1>
+              <p className="mt-2 mb-3 text-base italic max-sm:text-sm">
+                Donate your fresh food to someone in need.
+              </p>
+              <p className="text-xl max-sm:text-lg">
+                Your small effort can make a big difference.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <div className="custom-prev">
+          <GiBanana></GiBanana>
+        </div>
+        <div className="custom-next">
+          <FaLemon></FaLemon>
+        </div>
       </Swiper>
     </>
   );

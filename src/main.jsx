@@ -26,6 +26,10 @@ const router = createBrowserRouter([
         path: "/signin",
         element: <Signin></Signin>,
       },
+      {
+        path: "/available-foods",
+        element: <h1>available foods</h1>,
+      }
     ],
   },
 ]);
