@@ -12,6 +12,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -58,7 +59,6 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const logOut = () => {
-    console.log("logout called");
     return signOut(auth);
   };
 
@@ -76,12 +76,12 @@ const AuthProvider = ({ children }) => {
   };
 
   // fetching foods
-  // useEffect(() => {
-  //   fetch("https://movie-mania-server-drab.vercel.app/foods")
-  //     .then((res) => res.json())
-  //     .then((data) => setFoods(data))
-  //     .catch((error) => console.log(error));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/foods")
+      .then((res) => setFoods(res.data))
+      .catch((error) => console.log("Error while fetching data: ",error));
+  }, []);
 
   const authInfo = {
     user,

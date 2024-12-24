@@ -5,6 +5,7 @@ import { Bounce, toast } from "react-toastify";
 import anim from "../assets/signup-lottie.json";
 import Lottie from "lottie-react";
 import { AwesomeButton } from "react-awesome-button";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUser, user, setUser, logInGoogle } = useContext(AuthContext);
@@ -33,6 +34,11 @@ const SignUp = () => {
     createUser(email, password, name, photoUrl)
       .then((result) => {
         setUser(result.user);
+        Swal.fire({
+          title: "Welcome!",
+          text: "Sign up successful!",
+          icon: "success",
+        });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -62,7 +68,7 @@ const SignUp = () => {
               className="mx-auto sm:w-80 w-60"
             ></Lottie>
             <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-              SignUp your account
+              Sign up your account
             </h2>
           </div>
 
@@ -145,7 +151,9 @@ const SignUp = () => {
               </div>
 
               <div>
-                <AwesomeButton type="primary" className="w-full">Sign Up</AwesomeButton>
+                <AwesomeButton type="primary" className="w-full">
+                  Sign Up
+                </AwesomeButton>
               </div>
             </form>
 
@@ -192,7 +200,7 @@ const SignUp = () => {
                 to={"/login"}
                 className="font-semibold text-indigo-600 hover:text-indigo-500"
               >
-                Login
+                Sign In
               </Link>
             </p>
           </div>

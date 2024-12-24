@@ -160,15 +160,13 @@ const Navbar = () => {
                 <AwesomeButton type="secondary">SignUp</AwesomeButton>
               </Link>
             </div>
-            <div className={`flex gap-2 ml-3 ${user?.email ? "" : "hidden"}`}>
-              <AwesomeButton
-                onPressed={() => {
-                  logOut();
-                }}
-                type="primary"
-              >
-                SignOut
-              </AwesomeButton>
+            <div
+              onClick={() => {
+                logOut();
+              }}
+              className={`ml-3 ${user?.email ? "" : "hidden"}`}
+            >
+              <AwesomeButton type="primary">SignOut</AwesomeButton>
             </div>
           </div>
         </div>

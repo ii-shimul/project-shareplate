@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import "react-awesome-button/dist/styles.css";
 import AuthProvider from "./provider/AuthProvider";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h1>Home</h1>,
+        element: <Home></Home>,
       },
       {
         path: "/signup",

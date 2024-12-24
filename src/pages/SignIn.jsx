@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Lottie from "lottie-react";
 import animationData from "../assets/login-lottie.json";
 import { AwesomeButton } from "react-awesome-button";
+import Swal from "sweetalert2";
 
 const Signin = () => {
   const { logIn, logInGoogle, setUser, user } = useContext(AuthContext);
@@ -20,6 +21,11 @@ const Signin = () => {
     logIn(email, password)
       .then((result) => {
         setUser(result.user);
+        Swal.fire({
+          title: "Welcome Back!",
+          text: "Sign in successful!",
+          icon: "success",
+        });
       })
       .catch((error) => {
         const errorMessage = error.message;
