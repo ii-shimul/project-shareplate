@@ -11,19 +11,44 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/available-foods"}>Available Foods</NavLink>
+        <NavLink
+          to="/available-foods"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Available Foods
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/add-food"}>Add Food</NavLink>
+        <NavLink
+          to="/add-food"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Add Food
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/manage-food"}>Manage My Food</NavLink>
+        <NavLink
+          to="/manage-food"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Manage My Food
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/food-requests"}>My Food Requests</NavLink>
+        <NavLink
+          to="/food-requests"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          My Food Requests
+        </NavLink>
       </li>
     </>
   );

@@ -8,6 +8,19 @@
   font-optical-sizing: auto;
 }
 
+.active {
+  color: rgba(37, 36, 36, 0.8);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.active:hover {
+  color: rgba(37, 36, 36, 1);
+  font-size: 1.3rem;
+}
+
 
 .custom-prev,
 .custom-next {
