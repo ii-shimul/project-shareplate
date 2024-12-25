@@ -5,6 +5,22 @@ import { FcExpired } from "react-icons/fc";
 
 const FoodCard = ({ food }) => {
   const { foodName, foodImage, pickupLocation, expiredDateTime } = food;
+  const date = new Date(expiredDateTime);
+
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  const ampm = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12 || 12;
+  const formattedMinutes = minutes.toString().padStart(2, "0");
+
+  const formattedTime = `${hours}:${formattedMinutes} ${ampm}`;
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are 0-indexed
+  const day = date.getDate().toString().padStart(2, "0");
+  const formattedDate = `${year}-${month}-${day}`;
+
   return (
     <div className="relative rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.03]">
       <img
@@ -20,7 +36,9 @@ const FoodCard = ({ food }) => {
         </p>
         <p className="opacity-80 flex items-center justify-center gap-1 mb-3">
           <FcExpired />
-          {expiredDateTime}
+          {formattedDate}
+          <span> at </span>
+          {formattedTime}
         </p>
         <AwesomeButton type="twitter">View Details</AwesomeButton>
       </div>

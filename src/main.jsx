@@ -9,6 +9,7 @@ import "react-awesome-button/dist/styles.css";
 import AuthProvider from "./provider/AuthProvider";
 import Home from "./pages/Home";
 import AvailableFoods from "./pages/AvailableFoods";
+import AddFood from "./pages/AddFood";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-food",
-        element: <h1>add food</h1>,
+        element: <AddFood></AddFood>,
       },
       {
         path: "/manage-food",

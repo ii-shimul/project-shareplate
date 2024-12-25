@@ -13,7 +13,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           Home
         </NavLink>
@@ -21,7 +21,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/available-foods"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           Available Foods
         </NavLink>
@@ -29,7 +29,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/add-food"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           Add Food
         </NavLink>
@@ -37,7 +37,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/manage-food"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           Manage My Food
         </NavLink>
@@ -45,7 +45,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/food-requests"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           My Food Requests
         </NavLink>
