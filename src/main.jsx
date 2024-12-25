@@ -8,6 +8,7 @@ import Signin from "./pages/Signin";
 import "react-awesome-button/dist/styles.css";
 import AuthProvider from "./provider/AuthProvider";
 import Home from "./pages/Home";
+import AvailableFoods from "./pages/AvailableFoods";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/available-foods",
-        element: <h1>available foods</h1>,
-      }
+        element: <AvailableFoods></AvailableFoods>,
+      },
+      {
+        path: "/add-food",
+        element: <h1>add food</h1>,
+      },
+      {
+        path: "/manage-food",
+        element: <h1>manage food</h1>,
+      },
+      {
+        path: "/food-requests",
+        element: <h1>food requests</h1>,
+      },
     ],
   },
 ]);
