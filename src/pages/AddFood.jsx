@@ -17,8 +17,7 @@ const AddFood = () => {
           name: user.displayName,
           email: user.email,
         },
-        status: "available",
-        createdAt: new Date(),
+        foodStatus: "available",
       });
       if (response.status === 200) {
         reset();
@@ -31,7 +30,8 @@ const AddFood = () => {
 
   return (
     <div className="max-w-md mx-auto p-4">
-      <h2 className="text-2xl mb-4">Add Food</h2>
+      <h2 className="text-2xl md:text-3xl font-semibold mb-1 text-center">Add Food</h2>
+      <p className="text-center mb-2 opacity-70">Add food to share with others</p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">
