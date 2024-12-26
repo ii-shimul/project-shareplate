@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { AwesomeButton } from "react-awesome-button";
 import { FaLocationDot } from "react-icons/fa6";
 import { FcExpired } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const FoodCard = ({ food }) => {
   const { foodName, foodImage, pickupLocation, expiredDateTime } = food;
@@ -40,7 +41,9 @@ const FoodCard = ({ food }) => {
           <span> at </span>
           {formattedTime}
         </p>
-        <AwesomeButton type="twitter">View Details</AwesomeButton>
+        <Link to={`/food-details/${food._id}`} state={{ food }}>
+          <AwesomeButton type="twitter">View Details</AwesomeButton>
+        </Link>
       </div>
     </div>
   );
@@ -52,6 +55,7 @@ FoodCard.propTypes = {
     foodImage: PropTypes.string.isRequired,
     pickupLocation: PropTypes.string.isRequired,
     expiredDateTime: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
 };
 
