@@ -1,14 +1,43 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { AwesomeButton } from "react-awesome-button";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const ManageFoods = () => {
   const { foods, user } = useContext(AuthContext);
-  const myFoods = foods.filter((food) => food.donator.email === user?.email);
+  const [myFoods, setMyFoods] = useState(foods.filter((food) => food.donator.email === user?.email));
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        const res = await axios.delete(`http://localhost:5000/foods/${id}`);
+        if (res.status === 200) {
+          setMyFoods(myFoods.filter((food) => food._id !== id));
+          Swal.fire("Deleted!", "Your food has been deleted.", "success");
+        }
+      } catch (error) {
+        console.error("Error deleting food: ", error);
+      }
+    }
+  };
+
+
+  if (!myFoods.length) {
+    return <h1 className="text-center text-3xl my-10">You have not added any foods!</h1>;
+  }
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-5xl mx-auto py-10">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -65,7 +94,9 @@ const ManageFoods = () => {
                     </Link>
                   </td>
                   <th>
-                    <AwesomeButton>Delete</AwesomeButton>
+                    <AwesomeButton onPress={() => handleDelete(food._id)}>
+                      Delete
+                    </AwesomeButton>
                   </th>
                 </tr>
               );

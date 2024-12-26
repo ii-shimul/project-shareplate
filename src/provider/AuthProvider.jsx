@@ -13,7 +13,6 @@ import {
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -88,6 +87,7 @@ const AuthProvider = ({ children }) => {
     logIn,
     logInGoogle,
     loading,
+    setLoading,
     resetPassword,
     foods,
     fetchFoods

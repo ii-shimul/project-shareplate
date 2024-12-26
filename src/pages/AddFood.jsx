@@ -9,10 +9,11 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddFood = () => {
-  const { register, handleSubmit, reset } = useForm();
-  const { user, fetchFoods } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
+  const { user, fetchFoods, loading, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       const response = await axios.post("http://localhost:5000/foods", {
         ...data,
@@ -23,10 +24,11 @@ const AddFood = () => {
         },
         foodStatus: "available",
       });
+      console.log(response);
       if (response.status === 200) {
-        // fetchFoods();
-        reset();
-        navigate("/available-food");
+        console.log("hit");
+        fetchFoods();
+        navigate("/available-foods");
         Swal.fire({
           position: "top-center",
           icon: "success",
@@ -37,6 +39,8 @@ const AddFood = () => {
       }
     } catch (error) {
       console.error("Error adding food: ", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -105,7 +109,9 @@ const AddFood = () => {
               className="textarea textarea-bordered w-full"
             ></textarea>
           </div>
-          <AwesomeButton className="w-full">Submit Food</AwesomeButton>
+          <AwesomeButton className="w-full">
+            {loading ? "Submitting..." : "Submit Food"}
+          </AwesomeButton>
         </form>
       </div>
       <Lottie animationData={anim} className="max-md:w-[50%]"></Lottie>
