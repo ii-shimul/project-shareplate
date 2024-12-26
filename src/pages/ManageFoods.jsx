@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { AwesomeButton } from "react-awesome-button";
+import { Link } from "react-router-dom";
 
 const ManageFoods = () => {
   const { foods, user } = useContext(AuthContext);
-  const myFoods = foods.filter((food) => food.donator.email === user.email);
+  const myFoods = foods.filter((food) => food.donator.email === user?.email);
+
   return (
     <div className="max-w-5xl mx-auto">
       <div className="overflow-x-auto">
@@ -57,7 +59,11 @@ const ManageFoods = () => {
                   <td>
                     {formattedDate} at {formattedTime}
                   </td>
-                  <td><AwesomeButton>Update</AwesomeButton></td>
+                  <td>
+                    <Link to={`/update-food/${food._id}`} state={{ food }}>
+                      <AwesomeButton>Update</AwesomeButton>
+                    </Link>
+                  </td>
                   <th>
                     <AwesomeButton>Delete</AwesomeButton>
                   </th>

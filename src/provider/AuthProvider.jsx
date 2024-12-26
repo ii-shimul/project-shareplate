@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -39,13 +40,6 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error(error.message);
     }
-  };
-
-  const updateProfileInfo = (name, photoURL) => {
-    updateProfile(user, {
-      displayName: name,
-      photoURL: photoURL,
-    });
   };
 
   useEffect(() => {
@@ -75,13 +69,16 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
+
   // fetching foods
-  useEffect(() => {
+  const fetchFoods = () => {
     axios
       .get("http://localhost:5000/foods")
       .then((res) => setFoods(res.data))
-      .catch((error) => console.log("Error while fetching data: ",error));
-  }, []);
+      .catch((error) => console.log("Error while fetching data: ", error));
+  };
+  fetchFoods();
+  // useEffect(() => {}, []);
 
   const authInfo = {
     user,
@@ -90,10 +87,10 @@ const AuthProvider = ({ children }) => {
     logOut,
     logIn,
     logInGoogle,
-    updateProfileInfo,
     loading,
     resetPassword,
     foods,
+    fetchFoods
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

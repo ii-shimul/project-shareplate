@@ -12,6 +12,8 @@ import AvailableFoods from "./pages/AvailableFoods";
 import AddFood from "./pages/AddFood";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ManageFoods from "./pages/ManageFoods";
+import UpdateFood from "./pages/UpdateFood";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/food-requests",
         element: <h1>food requests</h1>,
+      },
+      {
+        path: "/update-food/:id",
+        element: <UpdateFood></UpdateFood>,
       },
     ],
   },

@@ -1,42 +1,38 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
-import { AwesomeButton } from "react-awesome-button";
+import { AwesomeButtonProgress } from "react-awesome-button";
 import anim from "../assets/add-food-lottie.json";
 import Lottie from "lottie-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
-const AddFood = () => {
-  const { register, handleSubmit, reset } = useForm();
-  const { user, fetchFoods } = useContext(AuthContext);
+const UpdateFood = () => {
+  const { register, handleSubmit } = useForm();
+  const { id } = useParams();
+  const location = useLocation();
+  const { food } = location.state;
   const navigate = useNavigate();
+  const { fetchFoods } = useContext(AuthContext);
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://localhost:5000/foods", {
+      const response = await axios.put(`http://localhost:5000/foods/${id}`, {
         ...data,
-        donator: {
-          image: user.photoURL,
-          name: user.displayName,
-          email: user.email,
-        },
-        foodStatus: "available",
       });
       if (response.status === 200) {
-        // fetchFoods();
-        reset();
-        navigate("/available-food");
+        fetchFoods();
+        navigate("/manage-food");
         Swal.fire({
           position: "top-center",
           icon: "success",
-          title: "Food added successfully!",
+          title: "Your food has been updated",
           showConfirmButton: false,
           timer: 1500,
         });
       }
     } catch (error) {
-      console.error("Error adding food: ", error);
+      console.error("Error updating food: ", error);
     }
   };
 
@@ -44,17 +40,16 @@ const AddFood = () => {
     <div className="flex flex-col-reverse py-10 md:flex-row items-center justify-center gap-3 md:gap-10 max-w-[85%] mx-auto">
       <div className="max-w-md w-full">
         <h2 className="text-2xl md:text-3xl font-semibold mb-1 text-center">
-          Add Food
+          Update Food
         </h2>
-        <p className="text-center mb-2 opacity-70">
-          Add food to share with others
-        </p>
+        <p className="text-center mb-2 opacity-70">Update your food details.</p>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Food Name
             </label>
             <input
+              defaultValue={food.foodName}
               {...register("foodName", { required: true })}
               className="input input-bordered w-full"
             />
@@ -64,6 +59,7 @@ const AddFood = () => {
               Food Image
             </label>
             <input
+              defaultValue={food.foodImage}
               {...register("foodImage", { required: true })}
               className="input input-bordered w-full"
             />
@@ -73,6 +69,7 @@ const AddFood = () => {
               Food Quantity
             </label>
             <input
+              defaultValue={food.foodQuantity}
               {...register("foodQuantity", { required: true })}
               className="input input-bordered w-full"
             />
@@ -82,6 +79,7 @@ const AddFood = () => {
               Pickup Location
             </label>
             <input
+              defaultValue={food.pickupLocation}
               {...register("pickupLocation", { required: true })}
               className="input input-bordered w-full"
             />
@@ -91,6 +89,7 @@ const AddFood = () => {
               Expired Date/Time
             </label>
             <input
+              defaultValue={food.expiredDateTime}
               type="datetime-local"
               {...register("expiredDateTime", { required: true })}
               className="input input-bordered w-full"
@@ -101,11 +100,14 @@ const AddFood = () => {
               Additional Notes
             </label>
             <textarea
+              defaultValue={food.additionalNotes}
               {...register("additionalNotes")}
               className="textarea textarea-bordered w-full"
             ></textarea>
           </div>
-          <AwesomeButton className="w-full">Submit Food</AwesomeButton>
+          <AwesomeButtonProgress type="secondary" className="w-full">
+            Update
+          </AwesomeButtonProgress>
         </form>
       </div>
       <Lottie animationData={anim} className="max-md:w-[50%]"></Lottie>
@@ -113,4 +115,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default UpdateFood;
