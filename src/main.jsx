@@ -10,6 +10,8 @@ import AuthProvider from "./provider/AuthProvider";
 import Home from "./pages/Home";
 import AvailableFoods from "./pages/AvailableFoods";
 import AddFood from "./pages/AddFood";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ManageFoods from "./pages/ManageFoods";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/manage-food",
-        element: <h1>manage food</h1>,
+        element: <ManageFoods></ManageFoods>,
       },
       {
         path: "/food-requests",
@@ -48,10 +50,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </StrictMode>
 );
