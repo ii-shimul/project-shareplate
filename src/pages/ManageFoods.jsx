@@ -30,7 +30,9 @@ const ManageFoods = () => {
 
     if (result.isConfirmed) {
       try {
-        const res = await axios.delete(`http://localhost:5000/foods/${id}`);
+        const res = await axios.delete(
+          `https://shareplate-smoky.vercel.app/foods/${id}`
+        );
         if (res.status === 200) {
           setMyFoods(myFoods.filter((food) => food._id !== id));
           Swal.fire("Deleted!", "Your food has been deleted.", "success");

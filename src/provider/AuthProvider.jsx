@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
   const [fetching, setFetching] = useState(1);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/foods")
+      .get("https://shareplate-smoky.vercel.app/foods")
       .then((res) => setFoods(res.data))
       .catch((error) => console.log("Error while fetching data: ", error));
   }, [fetching]);

@@ -17,9 +17,12 @@ const UpdateFood = () => {
   const { setFetching } = useContext(AuthContext);
   const onSubmit = async (data) => {
     try {
-      const response = await axios.put(`http://localhost:5000/foods/${id}`, {
-        ...data,
-      });
+      const response = await axios.put(
+        `https://shareplate-smoky.vercel.app/foods/${id}`,
+        {
+          ...data,
+        }
+      );
       if (response.status === 200) {
         setFetching((prev) => prev + 1);
         navigate("/manage-food");

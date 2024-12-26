@@ -13,13 +13,15 @@ import AddFood from "./pages/AddFood";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ManageFoods from "./pages/ManageFoods";
 import UpdateFood from "./pages/UpdateFood";
-import axios from "axios";
 import FoodDetails from "./pages/FoodDetails";
+import ErrorPage from "./pages/ErrorPage";
+import PrivateRoute from "./pages/PrivateRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -39,23 +41,43 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-food",
-        element: <AddFood></AddFood>,
+        element: (
+          <PrivateRoute>
+            <AddFood></AddFood>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/manage-food",
-        element: <ManageFoods></ManageFoods>,
+        element: (
+          <PrivateRoute>
+            <ManageFoods></ManageFoods>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/food-requests",
-        element: <h1>food requests</h1>,
+        element: (
+          <PrivateRoute>
+            <h1>food requests</h1>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update-food/:id",
-        element: <UpdateFood></UpdateFood>,
+        element: (
+          <PrivateRoute>
+            <UpdateFood></UpdateFood>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/food-details/:id",
-        element: <FoodDetails></FoodDetails>,
+        element: (
+          <PrivateRoute>
+            <FoodDetails></FoodDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },

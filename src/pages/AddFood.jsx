@@ -16,15 +16,18 @@ const AddFood = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/foods", {
-        ...data,
-        donator: {
-          image: user.photoURL,
-          name: user.displayName,
-          email: user.email,
-        },
-        foodStatus: "available",
-      });
+      const response = await axios.post(
+        "https://shareplate-smoky.vercel.app/foods",
+        {
+          ...data,
+          donator: {
+            image: user.photoURL,
+            name: user.displayName,
+            email: user.email,
+          },
+          foodStatus: "available",
+        }
+      );
       console.log(response);
       if (response.status === 200) {
         setFetching((prev) => prev + 1);
