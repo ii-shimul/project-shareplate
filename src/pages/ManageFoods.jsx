@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { AwesomeButton } from "react-awesome-button";
 import { Link } from "react-router-dom";
@@ -7,7 +7,17 @@ import Swal from "sweetalert2";
 
 const ManageFoods = () => {
   const { foods, user } = useContext(AuthContext);
-  const [myFoods, setMyFoods] = useState(foods.filter((food) => food.donator.email === user?.email));
+  const [myFoods, setMyFoods] = useState([]);
+
+  useEffect(() => {
+    if (foods?.length) {
+      const userFoods = foods.filter(
+        (food) => food.donator.email === user?.email
+      );
+      setMyFoods(userFoods);
+    }
+  }, [foods, user]);
+
   const handleDelete = async (id) => {
     const result = await Swal.fire({
       title: "Are you sure?",
@@ -31,16 +41,18 @@ const ManageFoods = () => {
     }
   };
 
-
   if (!myFoods.length) {
-    return <h1 className="text-center text-3xl my-10">You have not added any foods!</h1>;
+    return (
+      <h1 className="text-center text-3xl my-10">
+        You have not added any foods!
+      </h1>
+    );
   }
 
   return (
     <div className="max-w-5xl mx-auto py-10">
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
           <thead>
             <tr>
               <th>Name</th>

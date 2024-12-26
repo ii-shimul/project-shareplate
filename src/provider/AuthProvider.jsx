@@ -67,18 +67,13 @@ const AuthProvider = ({ children }) => {
   const resetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
-
-
-  // fetching foods
-  const fetchFoods = () => {
+  const [fetching, setFetching] = useState(1);
+  useEffect(() => {
     axios
       .get("http://localhost:5000/foods")
       .then((res) => setFoods(res.data))
       .catch((error) => console.log("Error while fetching data: ", error));
-  };
-  fetchFoods();
-  // useEffect(() => {}, []);
-
+  }, [fetching]);
   const authInfo = {
     user,
     setUser,
@@ -90,7 +85,7 @@ const AuthProvider = ({ children }) => {
     setLoading,
     resetPassword,
     foods,
-    fetchFoods
+    setFetching,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

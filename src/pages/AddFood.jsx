@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
@@ -10,7 +10,8 @@ import Swal from "sweetalert2";
 
 const AddFood = () => {
   const { register, handleSubmit } = useForm();
-  const { user, fetchFoods, loading, setLoading } = useContext(AuthContext);
+  const { user, setFetching } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const onSubmit = async (data) => {
     setLoading(true);
@@ -26,8 +27,7 @@ const AddFood = () => {
       });
       console.log(response);
       if (response.status === 200) {
-        console.log("hit");
-        fetchFoods();
+        setFetching((prev) => prev + 1);
         navigate("/available-foods");
         Swal.fire({
           position: "top-center",

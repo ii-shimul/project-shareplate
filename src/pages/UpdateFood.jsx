@@ -14,14 +14,14 @@ const UpdateFood = () => {
   const location = useLocation();
   const { food } = location.state;
   const navigate = useNavigate();
-  const { fetchFoods } = useContext(AuthContext);
+  const { setFetching } = useContext(AuthContext);
   const onSubmit = async (data) => {
     try {
       const response = await axios.put(`http://localhost:5000/foods/${id}`, {
         ...data,
       });
       if (response.status === 200) {
-        fetchFoods();
+        setFetching((prev) => prev + 1);
         navigate("/manage-food");
         Swal.fire({
           position: "top-center",
