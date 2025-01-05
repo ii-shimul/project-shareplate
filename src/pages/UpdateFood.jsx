@@ -14,17 +14,16 @@ const UpdateFood = () => {
   const location = useLocation();
   const { food } = location.state;
   const navigate = useNavigate();
-  const { setFetching } = useContext(AuthContext);
   const onSubmit = async (data) => {
     try {
       const response = await axios.put(
         `https://shareplate-smoky.vercel.app/foods/${id}`,
         {
           ...data,
-        }
+        },
+        { withCredentials: true }
       );
       if (response.status === 200) {
-        setFetching((prev) => prev + 1);
         navigate("/manage-food");
         Swal.fire({
           position: "top-center",

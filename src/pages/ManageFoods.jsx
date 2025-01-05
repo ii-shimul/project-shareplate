@@ -6,17 +6,19 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const ManageFoods = () => {
-  const { foods, user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [myFoods, setMyFoods] = useState([]);
 
   useEffect(() => {
-    if (foods?.length) {
-      const userFoods = foods.filter(
-        (food) => food.donator.email === user?.email
-      );
-      setMyFoods(userFoods);
-    }
-  }, [foods, user]);
+    axios
+      .get(`https://shareplate-smoky.vercel.app/foods/user/${user?.email}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setMyFoods(res.data);
+      })
+      .catch((error) => console.log("Error while fetching data: ", error));
+  }, []);
 
   const handleDelete = async (id) => {
     const result = await Swal.fire({
@@ -31,7 +33,10 @@ const ManageFoods = () => {
     if (result.isConfirmed) {
       try {
         const res = await axios.delete(
-          `https://shareplate-smoky.vercel.app/foods/${id}`
+          `https://shareplate-smoky.vercel.app/foods/${id}`,
+          {
+            withCredentials: true,
+          }
         );
         if (res.status === 200) {
           setMyFoods(myFoods.filter((food) => food._id !== id));

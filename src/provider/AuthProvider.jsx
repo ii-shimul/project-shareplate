@@ -20,7 +20,6 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [foods, setFoods] = useState([]);
 
   const createUser = async (email, password, name = null, photoURL = null) => {
     try {
@@ -44,7 +43,28 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
+      if (currentUser?.email) {
+        const userJWT = { email: currentUser.email };
+        axios
+          .post("https://shareplate-smoky.vercel.app/jwt", userJWT, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+            setLoading(false);
+          });
+      } else {
+        axios
+          .post(
+            "https://shareplate-smoky.vercel.app/logout",
+            {},
+            { withCredentials: true }
+          )
+          .then((res) => {
+            console.log(res.data);
+            setLoading(false);
+          });
+      }
     });
     return () => {
       unsubscribe();
@@ -67,13 +87,7 @@ const AuthProvider = ({ children }) => {
   const resetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
-  const [fetching, setFetching] = useState(1);
-  useEffect(() => {
-    axios
-      .get("https://shareplate-smoky.vercel.app/foods")
-      .then((res) => setFoods(res.data))
-      .catch((error) => console.log("Error while fetching data: ", error));
-  }, [fetching]);
+
   const authInfo = {
     user,
     setUser,
@@ -84,8 +98,6 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     resetPassword,
-    foods,
-    setFetching,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 
 const AddFood = () => {
   const { register, handleSubmit } = useForm();
-  const { user, setFetching } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const onSubmit = async (data) => {
@@ -26,11 +26,10 @@ const AddFood = () => {
             email: user.email,
           },
           foodStatus: "available",
-        }
+        },
+        { withCredentials: true }
       );
-      console.log(response);
       if (response.status === 200) {
-        setFetching((prev) => prev + 1);
         navigate("/available-foods");
         Swal.fire({
           position: "top-center",
