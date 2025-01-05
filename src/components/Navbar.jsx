@@ -124,7 +124,7 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="space-x-2">
-            <Link to={"/signin"} className="hidden md:block">
+            <Link to={"/signin"} className="max-sm:hidden">
               <AwesomeButton type="primary">SignIn</AwesomeButton>
             </Link>
             <Link to={"/signup"}>
