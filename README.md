@@ -1,4 +1,4 @@
-# Food Sharing Website
+# SharePlate - Share a plate, save a life
 
 A platform designed to promote community sharing and reduce food waste by allowing users to donate and manage food items. This project aims to connect donors with those in need in an intuitive and accessible way.
 
@@ -10,6 +10,7 @@ To create a web-based solution for sharing surplus food, fostering community con
 
 ## Key Features
 - **User Authentication**: Sign up and log in functionality.
+- **Custom Layout**: You can change the grid layout in all foods section.
 - **Add Food Items**: Users can add details about food they want to share.
 - **Manage Food Items**: Update or delete food items added by the user.
 - **Food Details Page**: View detailed information about the food items.
@@ -24,5 +25,3 @@ To create a web-based solution for sharing surplus food, fostering community con
 - `sweetalert2`: For elegant alert modals.
 - `react-awesome-button`: For stylish buttons.
 - `lottie-react`: For displaying Lottie animations.
-
-
