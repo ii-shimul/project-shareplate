@@ -6,7 +6,7 @@ A platform designed to promote community sharing and reduce food waste by allowi
 To create a web-based solution for sharing surplus food, fostering community connection, and reducing food waste.
 
 ## Live URL
-[Visit the Food Sharing Website](https://shareplate-72dea.web.app)
+[Visit the Live Website](https://shareplate-72dea.web.app)
 
 ## Key Features
 - **User Authentication**: Sign up and log in functionality.
