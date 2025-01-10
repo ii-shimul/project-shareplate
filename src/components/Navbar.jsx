@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "/logo.svg";
 import { AuthContext } from "../provider/AuthProvider";
 import "../../src/index.css";
@@ -7,7 +7,7 @@ import { AwesomeButton } from "react-awesome-button";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const location = useLocation();
   const navLinks = (
     <>
       <li>
@@ -26,30 +26,53 @@ const Navbar = () => {
           Available Foods
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/add-food"
-          className={({ isActive }) => (isActive ? "active" : "not-active")}
-        >
-          Add Food
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/manage-food"
-          className={({ isActive }) => (isActive ? "active" : "not-active")}
-        >
-          Manage My Food
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/food-requests"
-          className={({ isActive }) => (isActive ? "active" : "not-active")}
-        >
-          My Food Requests
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/add-food"
+              className={({ isActive }) => (isActive ? "active" : "not-active")}
+            >
+              Add Food
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/manage-food"
+              className={({ isActive }) => (isActive ? "active" : "not-active")}
+            >
+              Manage My Food
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/food-requests"
+              className={({ isActive }) => (isActive ? "active" : "not-active")}
+            >
+              My Food Requests
+            </NavLink>
+          </li>
+        </>
+      )}
+      {location.pathname === "/" && (
+        <>
+          <li>
+            <a href="#how-it-works" className="not-active">
+              How It Works
+            </a>
+          </li>
+          <li>
+            <a href="#stories" className="not-active">
+              Success Stories
+            </a>
+          </li>
+          <li>
+            <a href="#reviews" className="not-active">
+              Reviews
+            </a>
+          </li>
+        </>
+      )}
     </>
   );
   return (

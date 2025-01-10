@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  scroll-behavior: smooth;
+}
+
 .signika {
   font-family: "Signika", serif;
   font-optical-sizing: auto;

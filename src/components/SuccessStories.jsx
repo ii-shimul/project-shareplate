@@ -18,7 +18,7 @@ const SuccessStories = () => {
   ];
 
   return (
-    <section className="py-10 bg-gradient-to-r from-blue-50 to-blue-100">
+    <section id="stories" className="py-10 bg-gradient-to-r from-blue-50 to-blue-100">
       <div className="md:max-w-[85%] mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-6">
           Success Stories

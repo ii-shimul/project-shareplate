@@ -1,6 +1,6 @@
 const HowItWorks = () => {
   return (
-    <div className="container md:max-w-3xl max-w-md mx-auto my-10">
+    <div id="how-it-works" className="container md:max-w-3xl max-w-md mx-auto my-10 pt-5">
       <h1 className="text-3xl md:text-4xl font-semibold text-blue-600 text-center mb-5">
         How It Works
       </h1>
