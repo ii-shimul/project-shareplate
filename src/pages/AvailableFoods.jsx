@@ -71,7 +71,9 @@ const AvailableFoods = () => {
   return (
     <div className="py-10 w-[85%] mx-auto max-sm:w-[95%]">
       <div>
-        <h1 className="text-3xl md:text-4xl text-center font-bold">{header}</h1>
+        <h1 className="text-3xl md:text-5xl font-semibold text-blue-600 text-center">
+          {header}
+        </h1>
         <p className="text-center mt-1 opacity-90">Find your favorite food</p>
       </div>
       <div className="mb-6 mt-3 grid grid-cols-3 lg:grid-cols-5 gap-4">
@@ -116,7 +118,7 @@ const AvailableFoods = () => {
         </div>
         <div className="flex justify-end">
           <AwesomeButton onPress={() => handleSort()} className="w-fit ">
-            Sort
+            Sort by Date
           </AwesomeButton>
         </div>
       </div>

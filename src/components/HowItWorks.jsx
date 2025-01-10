@@ -1,7 +1,9 @@
 const HowItWorks = () => {
   return (
     <div className="container md:max-w-3xl max-w-md mx-auto my-10">
-      <h1 className="text-3xl text-center mb-5">How It Works</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold text-blue-600 text-center mb-5">
+        How It Works
+      </h1>
       <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
         <li>
           <div className="timeline-middle">

@@ -48,7 +48,9 @@ const FeaturedFoods = () => {
     .slice(0, 6);
   return (
     <div className="pt-10">
-      <h1 className="text-3xl text-center mb-5">Featured Foods</h1>
+      <h1 className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-5">
+        Featured Foods
+      </h1>
       <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2 gap-5 w-[85%] mx-auto">
         {sortedFoods.map((food) => {
           return (

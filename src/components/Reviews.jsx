@@ -1,328 +1,243 @@
 import me from "../assets/me.jpg";
 import einstein from "../assets/Albert-Einstein.webp";
 import newton from "../assets/newton.avif";
-import elon from "../assets/elon-musk.jpg";
-import mark from "../assets/mark-zuckerberg.jpg";
-import sam from "../assets/Sam-Altman.webp";
-
 
 const Reviews = () => {
   return (
-    <div className="container mx-auto max-sm:w-[90%] pb-16 pt-10 max-sm:py-8">
-      <div className="flex justify-center items-center">
-        <a className="btn rounded-full bg-green-600 text-white  text-base font-bold w-fit">
-          Our Reviews From Happy Clients
-        </a>
-      </div>
-      <div className="mb-8">
-        <h1 className="font-black text-4xl leading-[50px] mt-4 mb-6 max-sm:text-2xl text-center">
-          Meet Our Regular Users
-        </h1>
-      </div>
-      <div className="flex flex-col items-center">
-        <div className="grid grid-cols-3 gap-4 max-sm:grid-cols-1">
-          <div className="card bg-base-100 w-96 p-5 pb-8 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)] transition duration-300">
-            <figure className="pt-4 pb-5">
-              <div className="avatar">
-                <div className="ring-[#ABEF5F] ring-offset-base-100 w-40 rounded-full ring ring-offset-2">
-                  <img src={me} />
-                </div>
-              </div>
-            </figure>
-            <div className="flex flex-col items-center text-center flex-grow">
-              <p className="font-bold">II Shimul</p>
-              <p className="text-sm opacity-70 mt-1 mb-3">CEO, Bax Corp.</p>
-              <div className="flex flex-col items-center flex-grow justify-between">
-                <h2 className="card-title text-base font-bold">
-                  "SharePlate has been a lifesaver for me and my family. It’s
-                  heartwarming to see how the community comes together to share
-                  resources and help those in need. The platform is so easy to
-                  use, and I’ve never felt more supported."
-                </h2>
-                <div className="card-actions mt-4">
-                  <div className="rating">
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star-2 bg-orange-400"
+    <section className="py-12 bg-gray-50 sm:py-16 lg:py-20">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center">
+          <div className="text-center">
+            <p className="md:text-lg font-medium text-blue-400 font-pj">
+              2,157 people have said how good SharePlate is
+            </p>
+            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-blue-600 font-pj">
+              Our happy clients say about us
+            </h2>
+          </div>
+          <div className="relative mt-10 md:mt-24 md:order-2">
+            <div className="absolute -inset-x-1 inset-y-16 md:-inset-x-2 md:-inset-y-6">
+              <div
+                className="w-full h-full max-w-5xl mx-auto rounded-3xl opacity-30 blur-lg filter"
+                style={{
+                  background:
+                    "linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)",
+                }}
+              />
+            </div>
+            <div className="relative grid max-w-lg grid-cols-1 gap-6 mx-auto md:max-w-none lg:gap-10 md:grid-cols-3">
+              <div className="flex flex-col overflow-hidden shadow-xl">
+                <div className="flex flex-col justify-between flex-1 p-6 bg-white lg:py-8 lg:px-7">
+                  <div className="flex-1">
+                    <div className="flex items-center">
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="flex-1 mt-8">
+                      <p className="text-lg leading-relaxed text-gray-900 font-pj">
+                        “SharePlate has been a lifesaver for me and my family.
+                        It’s heartwarming to see how the community comes
+                        together to share resources and help those in need. The
+                        platform is so easy to use, and I’ve never felt more
+                        supported.”
+                      </p>
+                    </blockquote>
+                  </div>
+                  <div className="flex items-center mt-8">
+                    <img
+                      className="flex-shrink-0 object-cover rounded-full w-11 h-11"
+                      src={me}
+                      alt
                     />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star-2 bg-orange-400"
-                      checked="checked"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
+                    <div className="ml-4">
+                      <p className="text-base font-bold text-gray-900 font-pj">
+                        II Shimul
+                      </p>
+                      <p className="mt-0.5 text-sm font-pj text-gray-600">
+                        CEO, Bax Corp.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="card bg-base-100 w-96 p-5 pb-8 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)] transition duration-300">
-            <figure className="pt-4 pb-5">
-              <div className="avatar">
-                <div className="ring-[#ABEF5F] ring-offset-base-100 w-40 rounded-full ring ring-offset-2">
-                  <img src={einstein} />
-                </div>
-              </div>
-            </figure>
-            <div className="flex flex-col items-center text-center flex-grow">
-              <p className="font-bold">Albert Einstein</p>
-              <p className="text-sm opacity-70 mt-1 mb-3">
-                Representative, Physics
-              </p>
-              <div className="flex flex-col items-center flex-grow justify-between">
-                <h2 className="card-title text-base font-bold">
-                  "I used to feel guilty about throwing away leftover food from
-                  my restaurant, but SharePlate has given me a way to make a
-                  difference. Knowing that my contributions are helping feed
-                  people in need is the most rewarding feeling."
-                </h2>
-                <div className="card-actions mt-4">
-                  <div className="rating">
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
+              <div className="flex flex-col overflow-hidden shadow-xl">
+                <div className="flex flex-col justify-between flex-1 p-6 bg-white lg:py-8 lg:px-7">
+                  <div className="flex-1">
+                    <div className="flex items-center">
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="flex-1 mt-8">
+                      <p className="text-lg leading-relaxed text-gray-900 font-pj">
+                        “I used to feel guilty about throwing away leftover food
+                        from my restaurant, but SharePlate has given me a way to
+                        make a difference. Knowing that my contributions are
+                        helping feed people in need is the most rewarding
+                        feeling.”
+                      </p>
+                    </blockquote>
+                  </div>
+                  <div className="flex items-center mt-8">
+                    <img
+                      className="flex-shrink-0 object-cover rounded-full w-11 h-11"
+                      src={einstein}
+                      alt
                     />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                      checked="checked"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
+                    <div className="ml-4">
+                      <p className="text-base font-bold text-gray-900 font-pj">
+                        Albert Einstein
+                      </p>
+                      <p className="mt-0.5 text-sm font-pj text-gray-600">
+                        Representative, Physics
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="card bg-base-100 w-96 p-5 pb-8 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)] transition duration-300">
-            <figure className="pt-4 pb-5">
-              <div className="avatar">
-                <div className="ring-[#ABEF5F] ring-offset-base-100 w-40 rounded-full ring ring-offset-2">
-                  <img src={newton} />
-                </div>
-              </div>
-            </figure>
-            <div className="flex flex-col items-center text-center flex-grow">
-              <p className="font-bold">Issac Newton</p>
-              <p className="text-sm opacity-70 mt-1 mb-3">CEO, Calculus</p>
-              <div className="flex flex-col items-center flex-grow justify-between">
-                <h2 className="card-title text-base font-bold">
-                  "This platform is not just about sharing food; it’s about
-                  building connections. I’ve met amazing people while
-                  volunteering, and it feels great to be part of such a caring
-                  community."
-                </h2>
-                <div className="card-actions mt-4">
-                  <div className="rating">
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                      checked="checked"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
+              <div className="flex flex-col overflow-hidden shadow-xl">
+                <div className="flex flex-col justify-between flex-1 p-6 bg-white lg:py-8 lg:px-7">
+                  <div className="flex-1">
+                    <div className="flex items-center">
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg
+                        className="w-5 h-5 text-[#FDB241]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="flex-1 mt-8">
+                      <p className="text-lg leading-relaxed text-gray-900 font-pj">
+                        “This platform is not just about sharing food; it’s
+                        about building connections. I’ve met amazing people
+                        while volunteering, and it feels great to be part of
+                        such a caring community.”
+                      </p>
+                    </blockquote>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-base-100 w-96 p-5 pb-8 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)] transition duration-300">
-            <figure className="pt-4 pb-5">
-              <div className="avatar">
-                <div className="ring-[#ABEF5F] ring-offset-base-100 w-40 rounded-full ring ring-offset-2">
-                  <img src={elon} />
-                </div>
-              </div>
-            </figure>
-            <div className="flex flex-col items-center text-center flex-grow">
-              <p className="font-bold">Elon Musk</p>
-              <p className="text-sm opacity-70 mt-1 mb-3">CEO, Tesla</p>
-              <div className="flex flex-col items-center flex-grow justify-between">
-                <h2 className="card-title text-base font-bold">
-                  "The interface is so user-friendly! Within minutes, I was able
-                  to list my extra groceries for donation. SharePlate has made
-                  giving back incredibly simple and impactful."
-                </h2>
-                <div className="card-actions mt-4">
-                  <div className="rating">
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
+                  <div className="flex items-center mt-8">
+                    <img
+                      className="flex-shrink-0 object-cover rounded-full w-11 h-11"
+                      src={newton}
+                      alt
                     />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                      checked="checked"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-base-100 w-96 p-5 pb-8 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)] transition duration-300">
-            <figure className="pt-4 pb-5">
-              <div className="avatar">
-                <div className="ring-[#ABEF5F] ring-offset-base-100 w-40 rounded-full ring ring-offset-2">
-                  <img src={mark} />
-                </div>
-              </div>
-            </figure>
-            <div className="flex flex-col items-center text-center flex-grow">
-              <p className="font-bold">Mark Zuckerberg</p>
-              <p className="text-sm opacity-70 mt-1 mb-3">CEO, Meta</p>
-              <div className="flex flex-col items-center flex-grow justify-between">
-                <h2 className="card-title text-base font-bold">
-                  "I was amazed at how quickly my food request was fulfilled.
-                  The pickup process was smooth, and the quality of the donated
-                  food was excellent. SharePlate truly brings hope to those in
-                  need."
-                </h2>
-                <div className="card-actions mt-4">
-                  <div className="rating">
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                      checked="checked"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-base-100 w-96 p-5 pb-8 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)] transition duration-300">
-            <figure className="pt-4 pb-5">
-              <div className="avatar">
-                <div className="ring-[#ABEF5F] ring-offset-base-100 w-40 rounded-full ring ring-offset-2">
-                  <img src={sam} />
-                </div>
-              </div>
-            </figure>
-            <div className="flex flex-col items-center text-center flex-grow">
-              <p className="font-bold">Sam Altman</p>
-              <p className="text-sm opacity-70 mt-1 mb-3">CEO, OpenAI</p>
-              <div className="flex flex-col items-center flex-grow justify-between">
-                <h2 className="card-title text-base font-bold">
-                  "Reducing food waste has always been my goal, and SharePlate
-                  aligns perfectly with that mission. It’s a great platform for
-                  anyone looking to make a positive impact on both the
-                  environment and people’s lives."
-                </h2>
-                <div className="card-actions mt-4">
-                  <div className="rating">
-                    <input
-                      type="radio"
-                      name="rating-6"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-6"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-6"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-6"
-                      className="mask mask-star-2 bg-orange-400"
-                      checked="checked"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-6"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
+                    <div className="ml-4">
+                      <p className="text-base font-bold text-gray-900 font-pj">
+                        Issac Newton
+                      </p>
+                      <p className="mt-0.5 text-sm font-pj text-gray-600">
+                        CEO, Calculus
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -330,7 +245,7 @@ const Reviews = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

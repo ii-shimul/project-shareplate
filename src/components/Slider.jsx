@@ -27,7 +27,7 @@ const Slider = () => {
           prevEl: ".custom-prev",
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper lg:min-h-screen max-max-sm:h-[300px]"
+        className="mySwiper lg:max-h-[calc(100vh-180px)] max-max-sm:h-[300px]"
       >
         <SwiperSlide>
           <div
