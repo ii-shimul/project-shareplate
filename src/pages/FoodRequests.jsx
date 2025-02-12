@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useContext } from "react";
-import { AwesomeButton } from "react-awesome-button";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const FoodRequests = () => {

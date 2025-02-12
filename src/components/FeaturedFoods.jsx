@@ -31,10 +31,7 @@ const FeaturedFoods = () => {
 
   if (!data || !data.length) {
     return (
-      <div
-        className="flex justify-center items-center"
-        style={{ minHeight: "calc(100vh - 376.5px)" }}
-      >
+      <div className="flex justify-center items-center h-[300px]">
         <span className="loading loading-dots loading-lg"></span>
       </div>
     );
@@ -92,5 +89,3 @@ const FeaturedFoods = () => {
 };
 
 export default FeaturedFoods;
-
-
