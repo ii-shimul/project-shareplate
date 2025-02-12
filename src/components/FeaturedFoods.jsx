@@ -48,7 +48,7 @@ const FeaturedFoods = () => {
       <h1 className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-5">
         Featured Foods
       </h1>
-      <div className="grid grid-cols-4 max-sm:grid-cols-1 max-md:grid-cols-2 gap-5 w-[85%] mx-auto">
+      <div className="grid grid-cols-4 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 gap-5 w-[85%] mx-auto">
         {sortedFoods.map((food) => {
           return (
             <div
