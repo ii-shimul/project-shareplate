@@ -16,18 +16,14 @@ const FeaturedFoods = () => {
   });
   if (isLoading || isPending) {
     return (
-      <div
-        className="h-14 flex justify-center items-center"
-      >
+      <div className="h-14 flex justify-center items-center">
         <span className="loading loading-dots loading-lg"></span>
       </div>
     );
   }
   if (isError) {
     return (
-      <div
-        className="flex justify-center items-center h-14"
-      >
+      <div className="flex justify-center items-center h-14">
         <span className="text-red-500">Error: {error.message}</span>
       </div>
     );
@@ -45,45 +41,44 @@ const FeaturedFoods = () => {
   }
   const sortedFoods = data
     .sort((a, b) => b.foodQuantity - a.foodQuantity)
-    .slice(0, 6);
+    .slice(0, 8);
+  console.log(sortedFoods[0]);
   return (
-    <div className="pt-10">
+    <div className="pt-10 max-w-[1400px] mx-auto">
       <h1 className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-5">
         Featured Foods
       </h1>
-      <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2 gap-5 w-[85%] mx-auto">
+      <div className="grid grid-cols-4 max-sm:grid-cols-1 max-md:grid-cols-2 gap-5 w-[85%] mx-auto">
         {sortedFoods.map((food) => {
           return (
             <div
               key={food._id}
-              data-aos="fade-up"
-              className="card card-side max-lg:flex-col shadow-xl p-5"
+              className="flex flex-col rounded-md transition-all relative overflow-hidden"
             >
-              <figure className="lg:w-1/2">
+              <div className="h-[250px]">
                 <img
                   src={food.foodImage}
-                  alt="food Poster"
-                  className="rounded-lg object-cover h-full"
+                  alt={food.foodName}
+                  className="w-full h-full object-cover"
                 />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title text-2xl font-bold">
-                  {food.foodName}
-                </h2>
-                <p className="text-sm italic">Quantity: {food.foodQuantity}</p>
-                <p className="text-sm">
-                  Expire Date: {new Date(food.expiredDateTime).toLocaleString()}
-                </p>
-                <p className="text-sm">Donator: {food.donator.name}</p>
-                <div className="card-actions mt-4 justify-end">
-                  <Link
-                    to={`/food-details/${food._id}`}
-                    state={{ food }}
-                    className="btn btn-sm btn-outline btn-accent"
-                  >
-                    See Details
-                  </Link>
+              </div>
+              <div className="flex flex-col flex-1 h-full text-center bg-gray-100 p-4">
+                <div className="flex-1">
+                  <h3 className="text-md sm:text-lg font-bold text-gray-800">
+                    {food.foodName}
+                  </h3>
+                  <h4 className="text-xs sm:text-sm text-gray-800 opacity-80">
+                    Expire Date:
+                    {new Date(food.expiredDateTime).toLocaleDateString()}
+                  </h4>
                 </div>
+                <Link
+                  to={`/food-details/${food._id}`}
+                  state={{ food }}
+                  className="w-full flex items-center justify-center gap-2 mt-3 px-2 py-2.5 sm:px-4 bg-blue-200 hover:bg-blue-500 text-sm text-gray-800 font-semibold rounded-md transition-all"
+                >
+                  See Details
+                </Link>
               </div>
             </div>
           );
@@ -97,3 +92,5 @@ const FeaturedFoods = () => {
 };
 
 export default FeaturedFoods;
+
+
