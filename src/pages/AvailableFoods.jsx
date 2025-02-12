@@ -58,9 +58,9 @@ const AvailableFoods = () => {
     setHeader("Search Results");
   }, [searchVal, perFoods]);
 
-  if (isPending || isLoading) {
-    <div
-      className="flex justify-center items-center h-14"
+  if (isLoading) {
+    return <div
+      className="flex justify-center items-center h-[300px]"
     >
       <span className="loading loading-dots loading-lg"></span>
     </div>;

@@ -7,7 +7,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const FoodRequests = () => {
   const { user } = useContext(AuthContext);
-  const { data: myFoods, isPending } = useQuery({
+  const { data: myFoods, isLoading } = useQuery({
     queryKey: ["requestedFoods"],
     queryFn: async () => {
       const res = await axios.get(
@@ -18,9 +18,9 @@ const FoodRequests = () => {
     },
   });
 
-  if (isPending) {
+  if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-14">
+      <div className="flex justify-center items-center h-[300px]">
         <span className="loading loading-dots loading-lg"></span>
       </div>
     );
