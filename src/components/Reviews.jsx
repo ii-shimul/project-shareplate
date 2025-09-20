@@ -4,7 +4,7 @@ import newton from "../assets/newton.avif";
 
 const Reviews = () => {
   return (
-    <section className="py-12 bg-gray-50 sm:py-16 lg:py-20" id="reviews">
+    <section className="py-12 bg-gray-50 dark:bg-black sm:py-16 lg:py-20" id="reviews">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
           <div className="text-center">
@@ -27,7 +27,7 @@ const Reviews = () => {
             </div>
             <div className="relative grid max-w-lg grid-cols-1 gap-6 mx-auto md:max-w-none lg:gap-10 md:grid-cols-3">
               <div className="flex flex-col overflow-hidden shadow-xl">
-                <div className="flex flex-col justify-between flex-1 p-6 bg-white lg:py-8 lg:px-7">
+                <div className="flex flex-col justify-between flex-1 p-6 bg-white dark:bg-black dark:bg-opacity-80 lg:py-8 lg:px-7">
                   <div className="flex-1">
                     <div className="flex items-center">
                       <svg
@@ -72,7 +72,7 @@ const Reviews = () => {
                       </svg>
                     </div>
                     <blockquote className="flex-1 mt-8">
-                      <p className="text-lg leading-relaxed text-gray-900 font-pj">
+                      <p className="text-lg leading-relaxed text-gray-900 font-pj dark:text-gray-400">
                         “SharePlate has been a lifesaver for me and my family.
                         It’s heartwarming to see how the community comes
                         together to share resources and help those in need. The
@@ -88,7 +88,7 @@ const Reviews = () => {
                       alt
                     />
                     <div className="ml-4">
-                      <p className="text-base font-bold text-gray-900 font-pj">
+                      <p className="text-base font-bold text-gray-900 dark:text-white font-pj">
                         II Shimul
                       </p>
                       <p className="mt-0.5 text-sm font-pj text-gray-600">
@@ -99,7 +99,7 @@ const Reviews = () => {
                 </div>
               </div>
               <div className="flex flex-col overflow-hidden shadow-xl">
-                <div className="flex flex-col justify-between flex-1 p-6 bg-white lg:py-8 lg:px-7">
+                <div className="flex flex-col justify-between flex-1 p-6 bg-white dark:bg-black dark:bg-opacity-80 lg:py-8 lg:px-7">
                   <div className="flex-1">
                     <div className="flex items-center">
                       <svg
@@ -144,7 +144,7 @@ const Reviews = () => {
                       </svg>
                     </div>
                     <blockquote className="flex-1 mt-8">
-                      <p className="text-lg leading-relaxed text-gray-900 font-pj">
+                      <p className="text-lg leading-relaxed text-gray-900 font-pj dark:text-gray-400">
                         “I used to feel guilty about throwing away leftover food
                         from my restaurant, but SharePlate has given me a way to
                         make a difference. Knowing that my contributions are
@@ -160,7 +160,7 @@ const Reviews = () => {
                       alt
                     />
                     <div className="ml-4">
-                      <p className="text-base font-bold text-gray-900 font-pj">
+                      <p className="text-base font-bold text-gray-900 dark:text-white font-pj">
                         Albert Einstein
                       </p>
                       <p className="mt-0.5 text-sm font-pj text-gray-600">
@@ -171,7 +171,7 @@ const Reviews = () => {
                 </div>
               </div>
               <div className="flex flex-col overflow-hidden shadow-xl">
-                <div className="flex flex-col justify-between flex-1 p-6 bg-white lg:py-8 lg:px-7">
+                <div className="flex flex-col justify-between flex-1 p-6 bg-white dark:bg-black dark:bg-opacity-80 lg:py-8 lg:px-7">
                   <div className="flex-1">
                     <div className="flex items-center">
                       <svg
@@ -216,7 +216,7 @@ const Reviews = () => {
                       </svg>
                     </div>
                     <blockquote className="flex-1 mt-8">
-                      <p className="text-lg leading-relaxed text-gray-900 font-pj">
+                      <p className="text-lg leading-relaxed text-gray-900 font-pj dark:text-gray-400">
                         “This platform is not just about sharing food; it’s
                         about building connections. I’ve met amazing people
                         while volunteering, and it feels great to be part of
@@ -231,7 +231,7 @@ const Reviews = () => {
                       alt
                     />
                     <div className="ml-4">
-                      <p className="text-base font-bold text-gray-900 font-pj">
+                      <p className="text-base font-bold text-gray-900 dark:text-white font-pj">
                         Issac Newton
                       </p>
                       <p className="mt-0.5 text-sm font-pj text-gray-600">

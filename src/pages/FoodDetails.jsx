@@ -66,7 +66,7 @@ const FoodDetails = () => {
   return (
     <>
       <div className="py-10">
-        <div className="glass flex max-md:flex-col gap-5 max-sm:gap-3 rounded-xl border max-w-[95%] lg:max-w-[70%] mx-auto p-8 shadow-xl bg-white">
+        <div className="glass flex max-md:flex-col gap-5 max-sm:gap-3 rounded-xl border max-w-[95%] lg:max-w-[70%] mx-auto p-8 shadow-xl bg-white dark:bg-black">
           {/* Image Section */}
           <div className="max-w-[55%] max-lg:max-w-full rounded-md object-contain animate__animated animate__fadeInLeft">
             <img
@@ -81,7 +81,7 @@ const FoodDetails = () => {
             <h1 className="text-4xl font-bold mb-1 text-[#4389D0] max-sm:text-3xl">
               {foodName}
             </h1>
-            <div className="text-lg text-gray-700 flex items-center gap-2">
+            <div className="text-lg text-gray-700 dark:text-gray-300 flex items-center gap-2">
               <FaUser className="text-[#4389D0]" />
               Donator:{" "}
               <div className="avatar">
@@ -91,21 +91,21 @@ const FoodDetails = () => {
               </div>{" "}
               <span className="font-medium">{donator?.name}</span>
             </div>
-            <p className="text-lg text-gray-700 flex items-center gap-2">
+            <p className="text-lg text-gray-700 dark:text-gray-300 flex items-center gap-2">
               <FaMapMarkerAlt className="text-[#4389D0]" />
               Location: <span className="font-medium">{pickupLocation}</span>
             </p>
-            <p className="text-lg text-gray-700 flex items-center gap-2">
+            <p className="text-lg text-gray-700 dark:text-gray-300 flex items-center gap-2">
               <FaClock className="text-[#4389D0]" />
               Expiry Date:{" "}
               <span className="font-medium">{formattedDateTime}</span>
             </p>
-            <p className="text-lg text-gray-700 flex items-center gap-2">
+            <p className="text-lg text-gray-700 dark:text-gray-300 flex items-center gap-2">
               <FaUtensils className="text-[#4389D0]" />
               Quantity: <span className="font-medium">{foodQuantity}</span>
             </p>
             {additionalNotes && (
-              <p className="text-lg text-gray-700 flex items-center gap-2">
+              <p className="text-lg text-gray-700 dark:text-gray-300 flex items-center gap-2">
                 <FaStickyNote className="text-[#4389D0]" />
                 Notes: <span className="font-medium">{additionalNotes}</span>
               </p>
@@ -135,7 +135,7 @@ const FoodDetails = () => {
           <h2 className="text-center text-xl">Request Food</h2>
           <form onSubmit={handleRequest} className="space-y-4">
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Food Name
               </label>
               <input
@@ -145,7 +145,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Food Image
               </label>
               <input
@@ -155,7 +155,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Food Id
               </label>
               <input
@@ -165,7 +165,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Food Donator
               </label>
               <input
@@ -175,7 +175,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Food Donator Email
               </label>
               <input
@@ -185,7 +185,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 User Email
               </label>
               <input
@@ -195,7 +195,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Food Quantity
               </label>
               <input
@@ -206,7 +206,7 @@ const FoodDetails = () => {
             </div>
 
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Pickup Location
               </label>
               <input
@@ -216,7 +216,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Expired Date/Time
               </label>
               <input
@@ -227,7 +227,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Request Date/Time
               </label>
               <input
@@ -238,7 +238,7 @@ const FoodDetails = () => {
               />
             </div>
             <div>
-              <label className="block text-sm input-xs font-medium text-gray-700">
+              <label className="block text-sm input-xs font-medium text-gray-700 dark:text-gray-300">
                 Additional Notes
               </label>
               <textarea

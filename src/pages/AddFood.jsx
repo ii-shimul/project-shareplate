@@ -57,7 +57,7 @@ const AddFood = () => {
         </p>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Food Name
             </label>
             <input
@@ -66,7 +66,7 @@ const AddFood = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Food Image
             </label>
             <input
@@ -75,7 +75,7 @@ const AddFood = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Food Quantity
             </label>
             <input
@@ -84,7 +84,7 @@ const AddFood = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Pickup Location
             </label>
             <input
@@ -93,7 +93,7 @@ const AddFood = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Expired Date/Time
             </label>
             <input
@@ -103,7 +103,7 @@ const AddFood = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Additional Notes
             </label>
             <textarea

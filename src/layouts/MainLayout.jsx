@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <>
       <Headroom className="z-[1000]">
-        <div className="bg-blue-100">
+        <div className="bg-blue-100 dark:bg-gray-700 shadow-lg dark:text-blue-100">
           <Navbar></Navbar>
         </div>
       </Headroom>

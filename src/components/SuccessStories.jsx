@@ -18,7 +18,10 @@ const SuccessStories = () => {
   ];
 
   return (
-    <section id="stories" className="py-10 bg-gradient-to-r from-blue-50 to-blue-100">
+    <section
+      id="stories"
+      className="py-10 bg-blue-50 dark:bg-black dark:bg-opacity-10"
+    >
       <div className="md:max-w-[85%] mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-6">
           Success Stories
@@ -31,12 +34,12 @@ const SuccessStories = () => {
           {stories.map((story, index) => (
             <div
               key={index}
-              className="card bg-white shadow-md rounded-lg p-6 transform hover:scale-105 transition duration-300"
+              className="card bg-white dark:bg-black  shadow-md rounded-lg p-6 transform hover:scale-105 transition duration-300"
             >
-              <h3 className="text-xl font-bold text-blue-500 mb-4">
+              <h3 className="text-xl font-bold text-blue-500  mb-4">
                 {story.title}
               </h3>
-              <p className="text-gray-700">{story.content}</p>
+              <p className="text-gray-700 dark:text-white dark:opacity-60">{story.content}</p>
             </div>
           ))}
         </div>
