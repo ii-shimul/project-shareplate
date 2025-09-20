@@ -1,11 +1,32 @@
+import { motion } from "framer-motion";
+
 const HowItWorks = () => {
   return (
-    <div id="how-it-works" className="container md:max-w-3xl max-w-md mx-auto my-10 pt-5">
-      <h1 className="text-3xl md:text-4xl font-semibold text-blue-600 text-center mb-5">
+    <motion.section
+      id="how-it-works"
+      className="container md:max-w-3xl max-w-md mx-auto my-10 pt-5"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <motion.h1
+        className="text-3xl md:text-4xl font-semibold text-blue-600 text-center mb-5"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         How It Works
-      </h1>
-      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
+      </motion.h1>
+      <motion.ul
+        className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+      >
+        <motion.li variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}>
           <div className="timeline-middle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -28,8 +49,8 @@ const HowItWorks = () => {
             produce to packaged meals."
           </div>
           <hr />
-        </li>
-        <li>
+        </motion.li>
+        <motion.li variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}>
           <hr />
           <div className="timeline-middle">
             <svg
@@ -52,8 +73,8 @@ const HowItWorks = () => {
             form, and wait for confirmation. It's that simple!"
           </div>
           <hr />
-        </li>
-        <li>
+        </motion.li>
+        <motion.li variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}>
           <hr />
           <div className="timeline-middle">
             <svg
@@ -78,9 +99,9 @@ const HowItWorks = () => {
             scheduled time to collect your food. Remember to bring a container
             if needed!"
           </div>
-        </li>
-      </ul>
-    </div>
+        </motion.li>
+      </motion.ul>
+    </motion.section>
   );
 };
 

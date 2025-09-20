@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "../index.css"
 import { GiBanana } from "react-icons/gi";
 import { FaLemon } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Slider = () => {
   return (
@@ -39,7 +40,12 @@ const Slider = () => {
             }}
             className="sm:h-[100vh] max-sm:h-[300px]"
           >
-            <div className="max-sm:pt-10 max-sm:pl-10 pt-52 pl-28 text-[#428526]">
+            <motion.div
+              className="max-sm:pt-10 max-sm:pl-10 pt-52 pl-28 text-[#428526]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <h1 className="text-6xl font-bold max-sm:text-3xl">
                 Share Food, Spread Love!
               </h1>
@@ -49,7 +55,7 @@ const Slider = () => {
               <p className="text-xl max-sm:text-lg">
                 Share your extra food with someone in need.
               </p>
-            </div>
+            </motion.div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -62,7 +68,12 @@ const Slider = () => {
             }}
             className="sm:h-[100vh] max-sm:h-[300px]"
           >
-            <div className="max-sm:pt-24 max-sm:pl-10 pt-52 text-center text-[#f16571]">
+            <motion.div
+              className="max-sm:pt-24 max-sm:pl-10 pt-52 text-center text-[#f16571]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            >
               <h1 className="text-6xl font-bold max-sm:text-3xl">
                 No Food Should Go to Waste!
               </h1>
@@ -72,7 +83,7 @@ const Slider = () => {
               <p className="text-xl max-sm:text-lg">
                 Your extra food can save someone in need.
               </p>
-            </div>
+            </motion.div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -85,7 +96,12 @@ const Slider = () => {
             }}
             className="sm:h-[100vh] max-sm:h-[300px]"
           >
-            <div className="max-sm:pt-10 max-sm:pr-10 pt-52 text-end pr-28 text-[#fe89a8]">
+            <motion.div
+              className="max-sm:pt-10 max-sm:pr-10 pt-52 text-end pr-28 text-[#fe89a8]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+            >
               <h1 className="text-6xl font-bold max-sm:text-3xl">
                 Together, We Can Make a Difference!
               </h1>
@@ -95,7 +111,7 @@ const Slider = () => {
               <p className="text-xl max-sm:text-lg">
                 Your small effort can make a big difference.
               </p>
-            </div>
+            </motion.div>
           </div>
         </SwiperSlide>
         <div className="custom-prev">

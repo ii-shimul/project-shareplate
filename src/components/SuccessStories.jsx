@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const SuccessStories = () => {
   const stories = [
     {
@@ -18,33 +20,56 @@ const SuccessStories = () => {
   ];
 
   return (
-    <section
+    <motion.section
       id="stories"
       className="py-10 bg-blue-50 dark:bg-black dark:bg-opacity-10"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.4 }}
     >
       <div className="md:max-w-[85%] mx-auto px-6">
-        <h2 className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-6">
+        <motion.h2
+          className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-6"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           Success Stories
-        </h2>
-        <p className="text-center text-lg text-gray-600 mb-8">
+        </motion.h2>
+        <motion.p
+          className="text-center text-lg text-gray-600 mb-8"
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+        >
           See how SharePlate is making a difference in the lives of people and
           communities around us.
-        </p>
-        <div className="grid md:grid-cols-3 gap-6">
+        </motion.p>
+        <motion.div
+          className="grid md:grid-cols-3 gap-6"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+        >
           {stories.map((story, index) => (
-            <div
+            <motion.div
               key={index}
               className="card bg-white dark:bg-black  shadow-md rounded-lg p-6 transform hover:scale-105 transition duration-300"
+              variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
             >
               <h3 className="text-xl font-bold text-blue-500  mb-4">
                 {story.title}
               </h3>
               <p className="text-gray-700 dark:text-white dark:opacity-60">{story.content}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

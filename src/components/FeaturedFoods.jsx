@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { AwesomeButton } from "react-awesome-button";
+import { motion } from "framer-motion";
 AOS.init();
 
 const FeaturedFoods = () => {
@@ -41,15 +42,28 @@ const FeaturedFoods = () => {
     .slice(0, 8);
   return (
     <div className="pt-10 max-w-[1400px] mx-auto">
-      <h1 className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-5">
+      <motion.h1
+        className="text-3xl md:text-5xl font-semibold text-blue-600 text-center mb-5"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         Featured Foods
-      </h1>
-      <div className="grid grid-cols-4 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 gap-5 w-[85%] mx-auto">
+      </motion.h1>
+      <motion.div
+        className="grid grid-cols-4 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 gap-5 w-[85%] mx-auto"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+      >
         {sortedFoods.map((food) => {
           return (
-            <div
+            <motion.div
               key={food._id}
               className="flex flex-col rounded-md transition-all relative overflow-hidden dark:bg-black"
+              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
             >
               <div className="h-[250px]">
                 <img
@@ -76,10 +90,10 @@ const FeaturedFoods = () => {
                   See Details
                 </Link>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
       <Link to={"/available-foods"} className="flex justify-center mt-5">
         <AwesomeButton size="large">Show All</AwesomeButton>
       </Link>

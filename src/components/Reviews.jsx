@@ -1,19 +1,33 @@
 import me from "../assets/me.jpg";
 import einstein from "../assets/Albert-Einstein.webp";
 import newton from "../assets/newton.avif";
+import { motion } from "framer-motion";
 
 const Reviews = () => {
   return (
-    <section className="py-12 bg-gray-50 dark:bg-black sm:py-16 lg:py-20" id="reviews">
+    <motion.section
+      className="py-12 bg-gray-50 dark:bg-black sm:py-16 lg:py-20"
+      id="reviews"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
           <div className="text-center">
             <p className="md:text-lg font-medium text-blue-400 font-pj">
               2,157 people have said how good SharePlate is
             </p>
-            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-blue-600 font-pj">
+            <motion.h2
+              className="mt-4 text-3xl md:text-5xl font-semibold text-blue-600 font-pj"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
               Our happy clients say about us
-            </h2>
+            </motion.h2>
           </div>
           <div className="relative mt-10 md:mt-24 md:order-2">
             <div className="absolute -inset-x-1 inset-y-16 md:-inset-x-2 md:-inset-y-6">
@@ -25,7 +39,13 @@ const Reviews = () => {
                 }}
               />
             </div>
-            <div className="relative grid max-w-lg grid-cols-1 gap-6 mx-auto md:max-w-none lg:gap-10 md:grid-cols-3">
+            <motion.div
+              className="relative grid max-w-lg grid-cols-1 gap-6 mx-auto md:max-w-none lg:gap-10 md:grid-cols-3"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="flex flex-col overflow-hidden shadow-xl">
                 <div className="flex flex-col justify-between flex-1 p-6 bg-white dark:bg-black dark:bg-opacity-80 lg:py-8 lg:px-7">
                   <div className="flex-1">
@@ -241,11 +261,11 @@ const Reviews = () => {
                   </div>
                 </div>
               </div>
-            </div>
+              </motion.div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
